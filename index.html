@@ -1,74 +1,232 @@
-<!doctype html>
+
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#075b3b">
-  <title>REPÚBLICA IA — Central do Simulador Político</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>REPÚBLICA IA | Simulador Roblox</title>
+  <meta name="description" content="Portal oficial do simulador político REPÚBLICA IA no Roblox.">
+  <style>
+    :root {
+      --bg: #080d16;
+      --panel: #111a29;
+      --panel2: #172338;
+      --text: #edf3ff;
+      --muted: #9aaac1;
+      --green: #36d399;
+      --line: #26364d;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: Arial, sans-serif;
+    }
+    a { color: inherit; text-decoration: none; }
+    header {
+      padding: 18px 7%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 15px;
+      border-bottom: 1px solid var(--line);
+      background: #0c1422;
+    }
+    .logo { font-size: 20px; font-weight: 900; letter-spacing: 1px; }
+    .logo span { color: var(--green); }
+    nav { display: flex; gap: 20px; color: var(--muted); font-size: 14px; }
+    .hero {
+      padding: 75px 7% 65px;
+      background: radial-gradient(ellipse at 80% 20%, #17413c 0%, transparent 42%);
+    }
+    .tag {
+      color: var(--green);
+      font-size: 12px;
+      font-weight: bold;
+      letter-spacing: 2px;
+    }
+    h1 { font-size: clamp(36px, 7vw, 65px); margin: 18px 0; line-height: 1.05; }
+    h1 span { color: var(--green); }
+    .hero p { color: var(--muted); max-width: 600px; line-height: 1.7; }
+    .actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+    .btn {
+      display: inline-block;
+      padding: 14px 20px;
+      border-radius: 9px;
+      font-weight: bold;
+      background: var(--green);
+      color: #07130f;
+    }
+    .btn.secondary {
+      background: var(--panel2);
+      color: var(--text);
+      border: 1px solid var(--line);
+    }
+    main { padding: 35px 7% 65px; }
+    .section-title { margin-bottom: 20px; }
+    .section-title h2 { margin-bottom: 7px; }
+    .section-title p { color: var(--muted); margin-top: 0; }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px;
+    }
+    .card {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 22px;
+    }
+    .card h3 { margin-top: 8px; }
+    .card p { color: var(--muted); line-height: 1.6; font-size: 14px; }
+    .symbol { font-size: 27px; }
+    .creator {
+      border-color: #287e69;
+      background: linear-gradient(135deg, #112c2a, var(--panel));
+    }
+    .creator strong { color: var(--green); }
+    .chat { margin-top: 35px; }
+    #chat-messages {
+      min-height: 100px;
+      max-height: 260px;
+      overflow-y: auto;
+      margin: 15px 0;
+      padding: 12px;
+      background: #0a111d;
+      border-radius: 9px;
+    }
+    #chat-messages p {
+      padding: 10px;
+      border-radius: 8px;
+      background: var(--panel2);
+      overflow-wrap: anywhere;
+    }
+    .chat-controls { display: flex; gap: 8px; }
+    #chat-input {
+      flex: 1;
+      min-width: 0;
+      padding: 13px;
+      border-radius: 8px;
+      border: 1px solid var(--line);
+      background: #0a111d;
+      color: white;
+    }
+    #chat-send {
+      border: 0;
+      border-radius: 8px;
+      padding: 0 18px;
+      background: var(--green);
+      font-weight: bold;
+    }
+    footer {
+      border-top: 1px solid var(--line);
+      padding: 25px 7%;
+      color: var(--muted);
+      font-size: 13px;
+    }
+    @media (max-width: 600px) {
+      header { align-items: flex-start; flex-direction: column; }
+      nav { flex-wrap: wrap; }
+      .hero { padding-top: 50px; }
+    }
+  </style>
 </head>
 <body>
-<header class="top">
-  <div class="brand"><div class="seal">🇧🇷</div><div><strong>REPÚBLICA IA</strong><small>Central do Simulador Político</small></div></div>
-  <nav>
-    <a href="#inicio">Início</a><a href="#assessoria">Assessoria</a><a href="#leis">Leis</a>
-    <a href="#rank">Rankings</a><a href="#centros">Centros</a><a href="#conversa">Conversa IA</a>
-  </nav>
-  <button class="outline" id="openLogin">Área do dono</button>
-</header>
-<main>
-<section class="hero" id="inicio">
-  <div class="eyebrow">PORTAL INSTITUCIONAL • ACESSO PÚBLICO</div>
-  <h1>Boas-vindas à <span>República IA</span></h1>
-  <p>Um centro de apoio para planejar, debater e organizar sua experiência no simulador político.</p>
-  <div class="hero-actions"><a class="primary" href="#assessoria">Acessar assessoria</a><a class="secondary" href="#leis">Criar projeto de lei</a></div>
-  <div class="notice">Projeto independente e demonstrativo. Não representa um órgão oficial do Governo do Brasil.</div>
-</section>
-<section id="assessoria">
-  <div class="section-head"><div><div class="eyebrow">GESTÃO PÚBLICA</div><h2>Central de assessoria</h2></div><span class="tag">6 áreas</span></div>
-  <div class="cards" id="adviceCards"></div>
-</section>
-<section id="leis">
-  <div class="eyebrow">PROCESSO LEGISLATIVO</div><h2>Elaborador de projetos de lei</h2>
-  <div class="panel">
-    <label for="lawTitle">Título da proposta</label><input id="lawTitle" placeholder="Ex.: Programa de incentivo à educação">
-    <label for="lawArea">Área</label><select id="lawArea"><option>Educação</option><option>Saúde</option><option>Economia</option><option>Infraestrutura</option><option>Meio ambiente</option><option>Segurança</option></select>
-    <label for="lawGoal">Qual problema a proposta pretende resolver?</label><textarea id="lawGoal" rows="3" placeholder="Explique o problema..."></textarea>
-    <label for="lawAction">O que a proposta determina?</label><textarea id="lawAction" rows="3" placeholder="Descreva a medida..."></textarea>
-    <button class="primary" id="makeLaw">Montar projeto</button>
-    <pre id="lawOutput" class="output" aria-live="polite">Seu projeto aparecerá aqui.</pre>
-  </div>
-</section>
-<section id="rank">
-  <div class="eyebrow">DESEMPENHO</div><h2>Rankings</h2>
-  <p class="muted">Exemplos ilustrativos — não são estatísticas reais do Roblox.</p>
-  <div class="tabs"><button class="tab active" data-rank="players">Jogadores</button><button class="tab" data-rank="centers">Centros políticos</button></div>
-  <div class="panel" id="rankContent"></div>
-</section>
-<section id="centros">
-  <div class="eyebrow">ORGANIZAÇÃO POLÍTICA</div><h2>Centros políticos</h2>
-  <div class="panel center-card"><div><span class="tag">CENTRO EM DESTAQUE</span><h3 id="centerName">PRFI</h3><p id="centerDescription">Centro político de demonstração da República IA.</p></div><div class="big-seal">🏛️</div></div>
-</section>
-<section id="conversa">
-  <div class="eyebrow">ASSISTENTE</div><h2>Conversa IA</h2>
-  <div class="panel chat"><div id="chatLog" class="chat-log"><p class="bot">Olá! Sou o assistente demonstrativo da República IA. Pergunte sobre leis, gestão pública ou organização política.</p></div><form id="chatForm"><input id="chatInput" placeholder="Digite sua pergunta..." autocomplete="off"><button class="primary">Enviar</button></form><small class="muted">Esta versão usa respostas demonstrativas, não uma IA conectada.</small></div>
-</section>
-</main>
-<footer>REPÚBLICA IA <span>Projeto independente • versão inicial</span></footer>
+  <header>
+    <div class="logo">REPÚBLICA <span>IA</span></div>
+    <nav>
+      <a href="#sobre">Sobre</a>
+      <a href="#criador">Criador</a>
+      <a href="#comunidade">Comunidade</a>
+    </nav>
+  </header>
 
-<div class="modal hidden" id="loginModal" role="dialog" aria-modal="true" aria-labelledby="loginTitle">
-  <div class="modal-box"><button class="x" id="closeLogin" aria-label="Fechar">×</button>
-    <div class="eyebrow">ACESSO RESTRITO</div><h2 id="loginTitle">Painel do proprietário</h2>
-    <p class="muted">Entre com a conta autorizada para administrar o portal.</p>
-    <form id="loginForm"><label>Usuário</label><input id="ownerUser" value="MIGUEL_ZEZIN5" autocomplete="username" required><label>Senha</label><input id="ownerPassword" type="password" autocomplete="current-password" required><button class="primary">Entrar</button></form>
-    <p id="loginMessage" class="message" aria-live="polite"></p>
-  </div>
-</div>
-<section class="admin hidden" id="adminPanel">
-  <div class="admin-head"><div><div class="eyebrow">ÁREA PRIVADA</div><h2>Painel do proprietário</h2></div><button class="outline" id="logout">Sair</button></div>
-  <div class="panel"><h3>Editar centro em destaque</h3><label>Novo nome</label><input id="editCenterName" maxlength="40"><label>Descrição</label><textarea id="editCenterDescription" rows="3" maxlength="240"></textarea><button class="primary" id="saveCenter">Salvar alterações</button><p id="adminMessage" class="message"></p></div>
-  <p class="muted">As alterações são gravadas no banco de dados do backend.</p>
-</section>
-<script src="js/config.js"></script><script src="js/app.js"></script>
-<script src="config.js"></script>
-<script src="app.js"></script></body></html>
+  <section class="hero">
+    <div class="tag">SIMULADOR POLÍTICO • ROBLOX</div>
+    <h1>Seu governo.<br><span>Suas decisões.</span></h1>
+    <p>
+      Entre em um simulador de governo dentro do Roblox.
+      Participe da experiência, conheça a comunidade e construa
+      sua trajetória no jogo.
+    </p>
+    <div class="actions">
+      <a class="btn" href="https://www.roblox.com/share?code=585a1a12b4ff264eb08c26f207c584d6&type=ExperienceDetails&stamp=1794092052754" target="_blank" rel="noopener">JOGAR NO ROBLOX ↗</a>
+      <a class="btn secondary" href="#sobre">Conhecer o projeto</a>
+    </div>
+  </section>
+
+  <main>
+    <section id="sobre">
+      <div class="section-title">
+        <h2>Sobre o simulador</h2>
+        <p>Uma experiência de interpretação de papéis dentro do Roblox.</p>
+      </div>
+      <div class="grid">
+        <article class="card">
+          <div class="symbol">🏛️</div>
+          <h3>Governo</h3>
+          <p>Explore cargos e funções políticas dentro do universo do jogo.</p>
+        </article>
+        <article class="card">
+          <div class="symbol">🗳️</div>
+          <h3>Participação</h3>
+          <p>Participe de atividades e decisões simuladas com outros jogadores.</p>
+        </article>
+        <article class="card">
+          <div class="symbol">🌎</div>
+          <h3>Comunidade</h3>
+          <p>Conheça outros participantes e faça parte da experiência.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="criador" style="margin-top:38px">
+      <div class="section-title">
+        <h2>Quem criou o projeto?</h2>
+      </div>
+      <div class="card creator">
+        <div class="symbol">👑</div>
+        <h3>Jogador Criador</h3>
+        <strong>Eagle_Sports</strong>
+        <p>Responsável pela criação do projeto REPÚBLICA IA.</p>
+      </div>
+    </section>
+
+    <section id="comunidade" class="chat">
+      <div class="section-title">
+        <h2>Assistente do simulador</h2>
+        <p>Chat demonstrativo com respostas pré-programadas. Não é uma IA conectada.</p>
+      </div>
+      <div class="card">
+        <div id="chat-messages">
+          <p>República IA: Olá! Bem-vindo ao portal do simulador. Como posso ajudar?</p>
+        </div>
+        <div class="chat-controls">
+          <input id="chat-input" type="text" placeholder="Digite sua mensagem..." maxlength="300">
+          <button id="chat-send" type="button">Enviar</button>
+        </div>
+      </div>
+    </section>
+
+    <section style="margin-top:38px">
+      <div class="section-title">
+        <h2>Painel do proprietário</h2>
+        <p>Área demonstrativa do portal.</p>
+      </div>
+      <div class="card">
+        <h3>👑 Eagle_Sports</h3>
+        <p>Este painel é apenas visual. Não possui autenticação, banco de dados ou funções administrativas reais.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    REPÚBLICA IA — Projeto independente de simulador no Roblox.
+    Não representa um governo real e não é afiliado à Roblox Corporation.
+  </footer>
+
+  <script src="config.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
