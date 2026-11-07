@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#075b3b">
+  <title>REPÚBLICA IA — Central do Simulador Político</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header class="top">
+  <div class="brand"><div class="seal">🇧🇷</div><div><strong>REPÚBLICA IA</strong><small>Central do Simulador Político</small></div></div>
+  <nav>
+    <a href="#inicio">Início</a><a href="#assessoria">Assessoria</a><a href="#leis">Leis</a>
+    <a href="#rank">Rankings</a><a href="#centros">Centros</a><a href="#conversa">Conversa IA</a>
+  </nav>
+  <button class="outline" id="openLogin">Área do dono</button>
+</header>
+<main>
+<section class="hero" id="inicio">
+  <div class="eyebrow">PORTAL INSTITUCIONAL • ACESSO PÚBLICO</div>
+  <h1>Boas-vindas à <span>República IA</span></h1>
+  <p>Um centro de apoio para planejar, debater e organizar sua experiência no simulador político.</p>
+  <div class="hero-actions"><a class="primary" href="#assessoria">Acessar assessoria</a><a class="secondary" href="#leis">Criar projeto de lei</a></div>
+  <div class="notice">Projeto independente e demonstrativo. Não representa um órgão oficial do Governo do Brasil.</div>
+</section>
+<section id="assessoria">
+  <div class="section-head"><div><div class="eyebrow">GESTÃO PÚBLICA</div><h2>Central de assessoria</h2></div><span class="tag">6 áreas</span></div>
+  <div class="cards" id="adviceCards"></div>
+</section>
+<section id="leis">
+  <div class="eyebrow">PROCESSO LEGISLATIVO</div><h2>Elaborador de projetos de lei</h2>
+  <div class="panel">
+    <label for="lawTitle">Título da proposta</label><input id="lawTitle" placeholder="Ex.: Programa de incentivo à educação">
+    <label for="lawArea">Área</label><select id="lawArea"><option>Educação</option><option>Saúde</option><option>Economia</option><option>Infraestrutura</option><option>Meio ambiente</option><option>Segurança</option></select>
+    <label for="lawGoal">Qual problema a proposta pretende resolver?</label><textarea id="lawGoal" rows="3" placeholder="Explique o problema..."></textarea>
+    <label for="lawAction">O que a proposta determina?</label><textarea id="lawAction" rows="3" placeholder="Descreva a medida..."></textarea>
+    <button class="primary" id="makeLaw">Montar projeto</button>
+    <pre id="lawOutput" class="output" aria-live="polite">Seu projeto aparecerá aqui.</pre>
+  </div>
+</section>
+<section id="rank">
+  <div class="eyebrow">DESEMPENHO</div><h2>Rankings</h2>
+  <p class="muted">Exemplos ilustrativos — não são estatísticas reais do Roblox.</p>
+  <div class="tabs"><button class="tab active" data-rank="players">Jogadores</button><button class="tab" data-rank="centers">Centros políticos</button></div>
+  <div class="panel" id="rankContent"></div>
+</section>
+<section id="centros">
+  <div class="eyebrow">ORGANIZAÇÃO POLÍTICA</div><h2>Centros políticos</h2>
+  <div class="panel center-card"><div><span class="tag">CENTRO EM DESTAQUE</span><h3 id="centerName">PRFI</h3><p id="centerDescription">Centro político de demonstração da República IA.</p></div><div class="big-seal">🏛️</div></div>
+</section>
+<section id="conversa">
+  <div class="eyebrow">ASSISTENTE</div><h2>Conversa IA</h2>
+  <div class="panel chat"><div id="chatLog" class="chat-log"><p class="bot">Olá! Sou o assistente demonstrativo da República IA. Pergunte sobre leis, gestão pública ou organização política.</p></div><form id="chatForm"><input id="chatInput" placeholder="Digite sua pergunta..." autocomplete="off"><button class="primary">Enviar</button></form><small class="muted">Esta versão usa respostas demonstrativas, não uma IA conectada.</small></div>
+</section>
+</main>
+<footer>REPÚBLICA IA <span>Projeto independente • versão inicial</span></footer>
+
+<div class="modal hidden" id="loginModal" role="dialog" aria-modal="true" aria-labelledby="loginTitle">
+  <div class="modal-box"><button class="x" id="closeLogin" aria-label="Fechar">×</button>
+    <div class="eyebrow">ACESSO RESTRITO</div><h2 id="loginTitle">Painel do proprietário</h2>
+    <p class="muted">Entre com a conta autorizada para administrar o portal.</p>
+    <form id="loginForm"><label>Usuário</label><input id="ownerUser" value="MIGUEL_ZEZIN5" autocomplete="username" required><label>Senha</label><input id="ownerPassword" type="password" autocomplete="current-password" required><button class="primary">Entrar</button></form>
+    <p id="loginMessage" class="message" aria-live="polite"></p>
+  </div>
+</div>
+<section class="admin hidden" id="adminPanel">
+  <div class="admin-head"><div><div class="eyebrow">ÁREA PRIVADA</div><h2>Painel do proprietário</h2></div><button class="outline" id="logout">Sair</button></div>
+  <div class="panel"><h3>Editar centro em destaque</h3><label>Novo nome</label><input id="editCenterName" maxlength="40"><label>Descrição</label><textarea id="editCenterDescription" rows="3" maxlength="240"></textarea><button class="primary" id="saveCenter">Salvar alterações</button><p id="adminMessage" class="message"></p></div>
+  <p class="muted">As alterações são gravadas no banco de dados do backend.</p>
+</section>
+<script src="js/config.js"></script><script src="js/app.js"></script>
+</body></html>
